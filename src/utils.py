@@ -7,6 +7,7 @@ import pandas as pd
 import dill
 
 from sklearn.metrics import r2_score
+from sklearn.model_selection import GridSearchCV
 
 
 
@@ -25,13 +26,22 @@ def save_object(file_path, obj):
         raise CustomException(e, sys)
 
 
-def evaluate_models(x_train, y_train, x_test, y_test, models):
+def evaluate_models(x_train, y_train, x_test, y_test, models, param):
     try:
         report= {}
         
         for model_name, model in models.items():
             
-            model.fit(x_train, y_train) # Train model
+            para = param[model_name]
+            
+            gs= GridSearchCV(model, para, cv= 3)
+            gs.fit(x_train, y_train)
+            
+            model.set_params(**gs.best_params_)
+            model.fit(x_train, y_train)
+            
+            # model.fit(x_train, y_train) # Train model
+            
             
             y_train_pred = model.predict(x_train)
             y_test_pred = model.predict(x_test)
