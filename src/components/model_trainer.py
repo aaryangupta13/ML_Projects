@@ -42,7 +42,7 @@ class ModelTrainer:
                 'Linear Regression': LinearRegression(),
                 'K-Neighbors Regressor': KNeighborsRegressor(),
                 'Decision Tree': DecisionTreeRegressor(),
-                'Random Forest Regressor': RandomForestRegressor(),
+                'Random Forest': RandomForestRegressor(),
                 'Gradient Boosting' : GradientBoostingRegressor(),
                 'XGBRegressor': XGBRegressor(),
                 'CatBoosting Regressor': CatBoostRegressor(verbose= False),
@@ -70,6 +70,11 @@ class ModelTrainer:
                     'n_estimators': [8,16,32,64,128,256]
                 },
                 "Linear Regression":{},
+                "K-Neighbors Regressor":{
+                    'n_neighbors':[5,7,9,11],
+                    # 'weights':['uniform','distance'],
+                    # 'algorithm':['ball_tree','kd_tree','brute']
+                },
                 "XGBRegressor":{
                     'learning_rate':[.1,.01,.05,.001],
                     'n_estimators': [8,16,32,64,128,256]
