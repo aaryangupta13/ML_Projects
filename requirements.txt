@@ -1,9 +1,10 @@
+# Lightweight versions with prebuilt wheels (no compiler needed)
+
 numpy==1.26.4
 pandas==2.2.2
-# matplotlib
 scikit-learn==1.5.0
 xgboost==1.7.6
 catboost==1.2.2
 dill
 Flask==3.0.3
-# -e .
+gunicorn==23.0.0
