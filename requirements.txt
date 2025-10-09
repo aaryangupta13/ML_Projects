@@ -1,10 +1,11 @@
-# Lightweight versions with prebuilt wheels (no compiler needed)
-
 numpy
 pandas
+seaborn
+matplotlib
 scikit-learn
-xgboost==1.7.6
-catboost==1.2.2
+xgboost
+catboost
 dill
 Flask
 gunicorn
+#-e .
